@@ -1,0 +1,39 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #1B4D8C;
+  --color-accent: #FF6B35;
+  --color-soft: #F0F7FF;
+  --color-text-main: #1A1A1A;
+  --color-text-sub: #5C6B7A;
+  --color-bg: #FFFFFF;
+  --color-border: #E5E9F0;
+  --color-success: #2D9D5F;
+  --color-disclaimer: #8B95A1;
+}
+
+html,
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  line-height: 1.7;
+}
+
+h1, h2, h3, h4 {
+  line-height: 1.3;
+  font-weight: 800;
+}
+
+button {
+  font-family: inherit;
+}
