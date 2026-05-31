@@ -1,3 +1,8 @@
+import Image from "next/image";
+
+const FORBES_ARTICLE_URL =
+  "https://www.forbeskorea.co.kr/news/articleView.html?idxno=401348";
+
 /**
  * 신뢰 앵커: 포브스코리아 보도 강조 인용 섹션
  * 광고규정 §7-② 준수: "1위" 표현은 우리(세람택스) 자칭이 아닌
@@ -91,10 +96,28 @@ export default function ForbesQuote() {
               매출 데이터.
             </p>
 
-            {/* 포브스 기사 이미지 placeholder */}
-            <div className="mt-7 rounded-xl bg-white/5 border border-dashed border-white/25 p-4 text-center text-xs md:text-sm text-white/60">
-              📷 포브스코리아 기사 캡처 이미지 (public/forbes-article.png)
-            </div>
+            {/* 포브스 기사 캡처 — 클릭 시 원문 이동 */}
+            <a
+              href={FORBES_ARTICLE_URL}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="group block mt-7 rounded-xl overflow-hidden bg-white border border-white/20 shadow-soft hover:shadow-primary-lg hover:scale-[1.01] transition-all"
+            >
+              <Image
+                src="/forbes-article.png"
+                alt="포브스코리아 기사 캡처: 세람택스 매출 94억, 개인 세무사 사무소 '전국 1위' (2026.02.23 보도)"
+                width={1600}
+                height={400}
+                sizes="(max-width: 768px) 100vw, 720px"
+                className="w-full h-auto"
+              />
+              <div className="px-4 py-2.5 bg-white text-[12px] md:text-[13px] text-text-sub flex items-center justify-between">
+                <span>포브스코리아 원문 보기</span>
+                <span className="text-primary font-bold group-hover:translate-x-0.5 transition-transform">
+                  →
+                </span>
+              </div>
+            </a>
 
             {/* 인용 명시 fine print */}
             <p className="mt-5 text-[12px] md:text-[13px] text-white/65 text-center leading-relaxed break-keep">
