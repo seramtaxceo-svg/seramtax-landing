@@ -4,6 +4,7 @@ import ForbesQuote from "@/components/ForbesQuote";
 import PressMentions from "@/components/PressMentions";
 import ValueProps from "@/components/ValueProps";
 import TeamPhoto from "@/components/TeamPhoto";
+import YouTubeShort from "@/components/YouTubeShort";
 import CaseStudies from "@/components/CaseStudies";
 import Process from "@/components/Process";
 import FAQ from "@/components/FAQ";
@@ -25,6 +26,7 @@ export default function RefundPage() {
       <CaseStudies variant="refund" />
       <ValueProps variant="refund" />
       <TeamPhoto />
+      <YouTubeShort variant="refund" />
       <Process variant="refund" />
       <FAQ variant="refund" />
       <LeadForm variant="refund" />

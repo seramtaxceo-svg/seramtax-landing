@@ -4,6 +4,7 @@ import ForbesQuote from "@/components/ForbesQuote";
 import PressMentions from "@/components/PressMentions";
 import ValueProps from "@/components/ValueProps";
 import TeamPhoto from "@/components/TeamPhoto";
+import YouTubeShort from "@/components/YouTubeShort";
 import CaseStudies from "@/components/CaseStudies";
 import StrategyCompare from "@/components/StrategyCompare";
 import Process from "@/components/Process";
@@ -27,6 +28,7 @@ export default function IncorporationPage() {
       <StrategyCompare />
       <ValueProps variant="incorporation" />
       <TeamPhoto />
+      <YouTubeShort variant="incorporation" />
       <Process variant="incorporation" />
       <FAQ variant="incorporation" />
       <LeadForm variant="incorporation" />
