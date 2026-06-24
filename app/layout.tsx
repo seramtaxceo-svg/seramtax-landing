@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 };
 
 const META_PIXEL_ID = "3500364370112517";
+const NAVER_WA_KEY = "s_eb6c5dfc756"; // 네이버 GFA 프리미엄 로그 분석 (공통키)
 
 export default function RootLayout({
   children,
@@ -45,6 +46,24 @@ export default function RootLayout({
             alt=""
           />
         </noscript>
+
+        {/* Naver Premium Log Analytics (GFA 전환 추적) */}
+        <Script
+          id="naver-wcs-loader"
+          src="//wcs.naver.net/wcslog.js"
+          strategy="afterInteractive"
+        />
+        <Script id="naver-wcs-init" strategy="afterInteractive">
+          {`
+            if (!window.wcs_add) window.wcs_add = {};
+            window.wcs_add["wa"] = "${NAVER_WA_KEY}";
+            if (!window._nasa) window._nasa = {};
+            if (window.wcs) {
+              window.wcs.inflow();
+              window.wcs_do();
+            }
+          `}
+        </Script>
       </body>
     </html>
   );

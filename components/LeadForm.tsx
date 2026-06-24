@@ -26,6 +26,13 @@ const FORMSPREE_ENDPOINT = "/api/lead";
 declare global {
   interface Window {
     fbq?: (...args: unknown[]) => void;
+    wcs?: {
+      trans: (value: string, type: string) => void;
+      inflow: (...args: unknown[]) => void;
+    };
+    wcs_do?: (...args: unknown[]) => void;
+    wcs_add?: Record<string, string>;
+    _nasa?: Record<string, unknown>;
   }
 }
 
@@ -62,10 +69,17 @@ export default function LeadForm({ variant }: { variant: Variant }) {
         body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error("submit_failed");
-      if (typeof window !== "undefined" && window.fbq) {
-        window.fbq("track", "Lead", {
-          content_name: variant === "refund" ? "경정청구" : "법인전환",
-        });
+      if (typeof window !== "undefined") {
+        // Meta Pixel Lead 이벤트
+        if (window.fbq) {
+          window.fbq("track", "Lead", {
+            content_name: variant === "refund" ? "경정청구" : "법인전환",
+          });
+        }
+        // Naver GFA 전환 이벤트 (type "2" = 회원가입/문의 카테고리)
+        if (window.wcs) {
+          window.wcs.trans("", "2");
+        }
       }
       setStatus("ok");
     } catch {
